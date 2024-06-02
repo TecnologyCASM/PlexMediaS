@@ -112,7 +112,7 @@ fdisk -l
 ```shell
 ls -l /dev/disk/by-uuid/
 ```
-![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/19b33499-2671-4033-b0cd-8b9c36e77dc2)
+![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/94a31d18-0fd6-480b-82c8-35bbb14e5e86)
 
 4) A continuacion proceso de montar el disco en el archivo `/etc/fstab`:
 ```shell
