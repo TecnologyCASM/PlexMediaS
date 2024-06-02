@@ -116,7 +116,7 @@ ls -l /dev/disk/by-uuid/
 
 4) A continuacion proceso de montar el disco en el archivo `/etc/fstab`:
 ```shell
-echo UUID="{Nombre UUID del disco}" "{directorio a montar}"
+echo UUID="029EF4C89EF4B4EF"  /mnt/storage  ntfs-3g  defaults,auto  0  0 
 ```
 Ejemplo: 
 ```shell
