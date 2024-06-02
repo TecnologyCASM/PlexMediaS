@@ -54,15 +54,15 @@ Este comando nos llevara a la siguente pantalla:
 1) Una vez la raspberry pi halla iniciado, procederemos a aplicar los siguientes comandos:
    - Actualiazar la lista de repositorios y OS:
 ```shell
-  sudo apt update && sudo apt-get full-upgrade -y
+sudo apt update && sudo apt-get full-upgrade -y
 ```
    - Agregar el usuario al grupo SUDO:
 ```shell
-  sudo useradd -aG sudo ${USER}
+sudo useradd -aG sudo ${USER}
 ```
    - Agregar en el archivo `SUDOERS` el siguiente comando:
 ```shell
-  %sudo ALL=(ALL:ALL) NOPASSWD:ALL
+%sudo ALL=(ALL:ALL) NOPASSWD:ALL
 ```
    - Realizar la instalacion de estos siguientes binarios:
 ```shell
@@ -93,19 +93,19 @@ docker run hello-world
 # Proceso de Montar disco duro Externo:
 1) Abriremos la terminal y nos colocaresmos en modo root con el siguiente comando:
 ```shell
-  sudo su
+sudo su
 ```
 2) Comando para visualizar el disco que necesitamos montar:
 ```shell
-  fdisk -l
+fdisk -l
 ```
 3) El siguiente comando es para poder visualizar cual es el UUID que identifica el disco:
 ```shell
-  ls -l /dev/disk/by-uuid/
+ls -l /dev/disk/by-uuid/
 ```
 4) A continuacion proceso de montar el disco en el archivo `/etc/fstab`:
 ```shell
-  echo UUID="{Nombre UUID del disco}" "{directorio a montar}"
+echo UUID="{Nombre UUID del disco}" "{directorio a montar}"
 ```
 Ejemplo: 
 ```shell
