@@ -99,9 +99,14 @@ sudo su
 
 2) Comando para visualizar el disco que necesitamos montar:
 ```shell
+lsblk
+```
+![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/117d28ef-6b14-4a0f-be62-867266c70da2)
+
+```shell
 fdisk -l
 ```
-![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/9103a6de-3230-4d55-8b19-16ecb95270e6)
+![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/26ed80dd-72c5-47fb-bf34-3a911eef2b1d)
 
 3) El siguiente comando es para poder visualizar cual es el UUID que identifica el disco:
 ```shell
