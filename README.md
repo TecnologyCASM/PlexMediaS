@@ -103,8 +103,14 @@ docker run hello-world
 ```shell
   ls -l /dev/disk/by-uuid/
 ```
+4) A continuacion proceso de montar el disco en el archivo `/etc/fstab`:
+```shell
+  echo UUID="{nombre del disco o UUID que es único por cada disco}" {directorio donde queremos montarlo}
+```
+Ejemplo: 
+```shell
+/mnt/storage) ntfs-3g defaults,auto 0 0 | sudo tee -a /etc/fstab
+```
 
-
-4) fafaf
 5) afafa
 6) 
