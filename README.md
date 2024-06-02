@@ -90,3 +90,21 @@ docker run hello-world
 ```
 ![image](https://github.com/TecnologyCASM/PiHoleUnbound-WG/assets/107158068/58f35f2b-9c35-4381-8186-8f37298e170a)
 
+# Proceso de Montar disco duro Externo:
+1) Abriremos la terminal y nos colocaresmos en modo root con el siguiente comando:
+```shell
+  sudo su
+```
+2) Comando para visualizar el disco que necesitamos montar:
+```shell
+  fdisk -l
+```
+3) El siguiente comando es para poder visualizar cual es el UUID que identifica el disco:
+```shell
+  ls -l /dev/disk/by-uuid/
+```
+
+
+4) fafaf
+5) afafa
+6) 
