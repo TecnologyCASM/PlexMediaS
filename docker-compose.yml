@@ -69,6 +69,3 @@ services:
       - TORRENT_PLUGIN=transmission
       - FG_WEBUI_PASSWD=p3l4d0_N3RD # la puedes cambiar por la que quieras
     restart: unless-stopped
-#--------------------------------------------------------------------#
-#--------------------------Otros Servicios---------------------------#
-#--------------------------------------------------------------------#
