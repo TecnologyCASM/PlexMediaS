@@ -95,14 +95,20 @@ docker run hello-world
 ```shell
 sudo su
 ```
+![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/09e483c7-5a33-4f33-8b27-3e6d828273b0)
+
 2) Comando para visualizar el disco que necesitamos montar:
 ```shell
 fdisk -l
 ```
+![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/9079b0c7-cd34-47da-93b4-81216e4fa0e2)
+
 3) El siguiente comando es para poder visualizar cual es el UUID que identifica el disco:
 ```shell
 ls -l /dev/disk/by-uuid/
 ```
+![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/19b33499-2671-4033-b0cd-8b9c36e77dc2)
+
 4) A continuacion proceso de montar el disco en el archivo `/etc/fstab`:
 ```shell
 echo UUID="{Nombre UUID del disco}" "{directorio a montar}"
