@@ -78,8 +78,7 @@ sudo apt-get update && sudo apt-get install -y \
 ```
    - Proceder con la instalacion de Docker:
 ```shell
-sudo sudo curl -fsSL https://get.docker.com/ -o get-docker.sh && sudo sh get-docker.sh \
---no-install-recommends docker-ce docker-compose &&
+sudo sudo curl -fsSL https://get.docker.com/ -o get-docker.sh && sudo sh get-docker.sh &&
 sudo usermod -aG docker ${USER} && sudo reboot && 
 ```
 ![image](https://github.com/TecnologyCASM/PiHoleUnbound-WG/assets/107158068/d0e3a919-3a1b-43a1-9634-244f7b041619)
