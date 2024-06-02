@@ -120,7 +120,7 @@ echo UUID="{Nombre UUID del disco}" "{directorio a montar}"
 ```
 Ejemplo: 
 ```shell
-/mnt/storage) ntfs-3g defaults,auto 0 0 | sudo tee -a /etc/fstab
+/mnt/storage ntfs-3g defaults,auto 0 0 | sudo tee -a /etc/fstab
 ```
 
 5) afafa
