@@ -101,7 +101,7 @@ sudo su
 ```shell
 fdisk -l
 ```
-![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/9079b0c7-cd34-47da-93b4-81216e4fa0e2)
+![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/9103a6de-3230-4d55-8b19-16ecb95270e6)
 
 3) El siguiente comando es para poder visualizar cual es el UUID que identifica el disco:
 ```shell
