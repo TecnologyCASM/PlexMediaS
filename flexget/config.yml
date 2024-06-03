@@ -92,7 +92,7 @@ tasks:
       host: transmission
       port: 9091
       username: admin
-      password: "123456"
+      password: "P@ssword2024*"
     disable: [seen, seen_info_hash]
     if:
       - transmission_progress == 100: accept
