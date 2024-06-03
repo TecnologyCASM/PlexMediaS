@@ -52,21 +52,9 @@ Este comando nos llevara a la siguente pantalla:
  
 # Proceso Actualiacion OS, Instalacion de Docker y agregar usuario a grupo docker: 
 1) Una vez la raspberry pi halla iniciado, procederemos a aplicar los siguientes comandos:
-   - Actualiazar la lista de repositorios y OS:
+   - Actualiazar la lista de repositorios, OS e instalacion de binarios:
 ```shell
-sudo apt update && sudo apt-get full-upgrade -y
-```
-   - Agregar el usuario al grupo SUDO:
-```shell
-sudo useradd -aG sudo ${USER}
-```
-   - Agregar en el archivo `SUDOERS` el siguiente comando:
-```shell
-%sudo ALL=(ALL:ALL) NOPASSWD:ALL
-```
-   - Realizar la instalacion de estos siguientes binarios:
-```shell
-sudo apt-get update && sudo apt-get install -y \
+sudo apt update && sudo apt-get full-upgrade -y \
      apt-transport-https \
      ca-certificates \
      curl \
@@ -80,6 +68,14 @@ sudo apt-get update && sudo apt-get install -y \
 ```shell
 sudo sudo curl -fsSL https://get.docker.com/ -o get-docker.sh && sudo sh get-docker.sh &&
 sudo usermod -aG docker ${USER} && sudo reboot && 
+```
+   - Agregar el usuario al grupo SUDO:
+```shell
+sudo useradd -aG sudo ${USER}
+```
+   - Agregar en el archivo `SUDOERS` el siguiente comando:
+```shell
+%sudo ALL=(ALL:ALL) NOPASSWD:ALL
 ```
 ![image](https://github.com/TecnologyCASM/PiHoleUnbound-WG/assets/107158068/d0e3a919-3a1b-43a1-9634-244f7b041619)
 ![image](https://github.com/TecnologyCASM/PiHoleUnbound-WG/assets/107158068/fe007f42-15a7-4ffb-93ea-7a195a2dd786)
