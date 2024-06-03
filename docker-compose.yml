@@ -3,10 +3,9 @@ version: '3.8'
 services:
   # Servicio Samba
   samba:
-    image: dperson/samba:latest
+    image: dperson/samba
     container_name: SAMBA
-    command: >
-      sh -c "samba.sh -u '${SAMBA_USER};${SAMBA_PASSWORD}' -s 'media;/media;yes;no' -s 'downloads;/downloads;yes;no'"    
+    command: '-u "${SAMBA_USER};${SAMBA_PASSWORD}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'    
     stdin_open: true
     tty: true
     environment:
@@ -36,6 +35,7 @@ services:
       - 32400
       - 33400
     restart: unless-stopped
+    network_mode: "host"
 #--------------------------------------------------------------------#
   # Servicio Transmission
  transmission:
