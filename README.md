@@ -67,7 +67,8 @@ sudo apt update && sudo apt-get full-upgrade -y \
    - Proceder con la instalacion de Docker:
 ```shell
 sudo sudo curl -fsSL https://get.docker.com/ -o get-docker.sh && sudo sh get-docker.sh &&
-sudo usermod -aG docker ${USER} && sudo reboot && 
+sudo usermod -aG docker ${USER} && sudo reboot
+
 ```
    - Agregar el usuario al grupo SUDO:
 ```shell
