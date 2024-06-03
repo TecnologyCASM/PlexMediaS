@@ -107,12 +107,6 @@ ls -l /dev/disk/by-uuid/
 ```shell
 UUID="029EF4C89EF4B4EF"  /mnt/storage  ntfs-3g  defaults,auto  0  0 
 ```
-![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/dc789d22-19a9-48c6-86aa-8741ceb407c9)
+![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/efe03d0a-ad63-4b6a-89f1-e591daaf1fdc)
 
-Ejemplo: 
-```shell
-/mnt/storage ntfs-3g defaults,auto 0 0 | sudo tee -a /etc/fstab
-```
-
-5) afafa
-6) 
+luego de esto solo resta reiniciar.
