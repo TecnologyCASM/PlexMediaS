@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # Servicio Samba
+# Servicio Samba
   samba:
     image: dperson/samba
     container_name: SAMBA
@@ -20,7 +20,7 @@ services:
       - 445:445
     restart: always
 #--------------------------------------------------------------------#
-  # Servicio Plex
+# Servicio Plex
   plex:
     image: lscr.io/linuxserver/plex:latest
     container_name: PLEX
@@ -37,7 +37,7 @@ services:
     restart: unless-stopped
     network_mode: "host"
 #--------------------------------------------------------------------#
-  # Servicio Transmission
+# Servicio Transmission
  transmission:
     image : jaymoulin/transmission:3.00-1.6.1
     container_name: TORRENTBT    
@@ -53,6 +53,7 @@ services:
       - 9091
     restart: unless-stopped
 #--------------------------------------------------------------------#
+# Servicio Flexget
   flexget:
     image: wiserain/flexget:3.5
     container_name: FLEXGET-MGMT 
