@@ -68,19 +68,22 @@ sudo apt update && sudo apt-get full-upgrade -y \
 ```shell
 sudo sudo curl -fsSL https://get.docker.com/ -o get-docker.sh && sudo sh get-docker.sh &&
 sudo usermod -aG docker ${USER} && sudo reboot
-
+enter
 ```
    - Agregar el usuario al grupo SUDO:
 ```shell
 sudo useradd -aG sudo ${USER}
+enter
 ```
    - Agregar en el archivo `SUDOERS` el siguiente comando:
 ```shell
 %sudo ALL=(ALL:ALL) NOPASSWD:ALL
+enter
 ```
 2) Una vez la raspberry pi halla iniciado y para validar que el servicio de docker esta instalado, procederemos a descargar un contenedor de prueba llamado `Helo-Wold`:
 ```shell
 docker run hello-world
+enter
 ```
 ![image](https://github.com/TecnologyCASM/PiHoleUnbound-WG/assets/107158068/58f35f2b-9c35-4381-8186-8f37298e170a)
 
@@ -88,23 +91,27 @@ docker run hello-world
 1) Abriremos la terminal y nos colocaresmos en modo root con el siguiente comando:
 ```shell
 sudo su
+enter
 ```
 ![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/09e483c7-5a33-4f33-8b27-3e6d828273b0)
 
 2) Comando para visualizar el disco que necesitamos montar:
 ```shell
 lsblk
+enter
 ```
 ![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/117d28ef-6b14-4a0f-be62-867266c70da2)
 
 ```shell
 fdisk -l
+enter
 ```
 ![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/26ed80dd-72c5-47fb-bf34-3a911eef2b1d)
 
 3) El siguiente comando es para poder visualizar cual es el UUID que identifica el disco:
 ```shell
 ls -l /dev/disk/by-uuid/
+enter
 ```
 ![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/94a31d18-0fd6-480b-82c8-35bbb14e5e86)
 
