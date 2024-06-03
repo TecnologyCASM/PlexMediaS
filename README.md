@@ -73,11 +73,6 @@ sudo usermod -aG docker ${USER} && sudo reboot
 ```shell
 sudo useradd ${USER} -G sudo
 ```
-   - Agregar en el archivo `SUDOERS` el siguiente comando: `/etc/sudoers`
-```shell
-# Allow members of group sudo to execute any command
-%sudo   ALL=(ALL:ALL) ALL
-```
 2) Una vez la raspberry pi halla iniciado y para validar que el servicio de docker esta instalado, procederemos a descargar un contenedor de prueba llamado `Helo-Wold`:
 ```shell
 docker run hello-world
