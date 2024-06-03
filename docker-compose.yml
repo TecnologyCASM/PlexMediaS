@@ -67,5 +67,5 @@ services:
       - PUID=1001
       - PGID=1001
       - TORRENT_PLUGIN=transmission
-      - FG_WEBUI_PASSWD=p3l4d0_N3RD # la puedes cambiar por la que quieras
+      - FG_WEBUI_PASSWD=${FG_WEBUI_PASSWD}
     restart: unless-stopped
