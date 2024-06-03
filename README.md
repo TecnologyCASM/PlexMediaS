@@ -71,7 +71,7 @@ sudo usermod -aG docker ${USER} && sudo reboot
 ```
    - Agregar el usuario al grupo SUDO:
 ```shell
-sudo useradd -aG sudo ${USER}
+sudo useradd ${USER} -G sudo
 ```
    - Agregar en el archivo `SUDOERS` el siguiente comando:
 ```shell
