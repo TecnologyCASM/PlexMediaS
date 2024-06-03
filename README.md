@@ -103,10 +103,12 @@ ls -l /dev/disk/by-uuid/
 ```
 ![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/94a31d18-0fd6-480b-82c8-35bbb14e5e86)
 
-4) A continuacion proceso de montar el disco en el archivo `/etc/fstab`:
+4) A continuacion proceso de montar el disco agregando la sigueinte entrada en la ruta `/etc/fstab`:
 ```shell
 UUID="029EF4C89EF4B4EF"  /mnt/storage  ntfs-3g  defaults,auto  0  0 
 ```
+![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/dc789d22-19a9-48c6-86aa-8741ceb407c9)
+
 Ejemplo: 
 ```shell
 /mnt/storage ntfs-3g defaults,auto 0 0 | sudo tee -a /etc/fstab
