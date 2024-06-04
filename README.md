@@ -8,7 +8,7 @@ Con este proyecto, podras crear tu propio servidor de descargas de peliculas y s
 * `64GB tarjeta MicroSD`. https://amzn.to/3ynPiNz
 * `Lector de tarjetas SD USB`. https://amzn.to/3wGN8bs
   
-Nota: Dicho esto, este proceso debería funcionar en cualquier Raspberry Pi. La carpeta Docker-Container contiene otros contenedores en caso de querer instalarlos, como son Portainer, Plex y Nextcloud.
+Nota: Dicho esto, este proceso debería funcionar en cualquier Raspberry Pi.
 
 # Instalacion de Sistema Operativo en Raspberry Pi:
 1) Descarga la aplicacion "[RaspberryOS](https://www.raspberrypi.com/software/)" de la pagina oficial.
@@ -64,14 +64,15 @@ sudo apt update && sudo apt-get full-upgrade -y \
      fail2ban \
      ntfs-3g
 ```
-   - Proceder con la instalacion de Docker:
-```shell
-sudo sudo curl -fsSL https://get.docker.com/ -o get-docker.sh && sudo sh get-docker.sh &&
-sudo usermod -aG docker ${USER} && sudo reboot
-```
    - Agregar el usuario al grupo SUDO:
 ```shell
 sudo useradd ${USER} -G sudo
+   - Proceder con la instalacion de Docker:
+```shell
+sudo apt update && sudo apt-get full-upgrade -y &&
+sudo curl -fsSL https://get.docker.com/ -o get-docker.sh && sudo sh get-docker.sh &&
+sudo usermod -aG docker ${USER} &&
+sudo reboot
 ```
 2) Una vez la raspberry pi halla iniciado y para validar que el servicio de docker esta instalado, procederemos a descargar un contenedor de prueba llamado `Helo-Wold`:
 ```shell
