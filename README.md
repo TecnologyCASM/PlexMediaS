@@ -67,6 +67,7 @@ sudo apt update && sudo apt-get full-upgrade -y \
    - Agregar el usuario al grupo SUDO:
 ```shell
 sudo useradd ${USER} -G sudo
+```
    - Proceder con la instalacion de Docker:
 ```shell
 sudo apt update && sudo apt-get full-upgrade -y &&
