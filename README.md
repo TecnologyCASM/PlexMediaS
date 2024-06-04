@@ -63,14 +63,8 @@ sudo apt update && sudo apt-get full-upgrade -y \
      software-properties-common \
      vim \
      fail2ban \
-     ntfs-3g
-```
-   - Agregar el usuario al grupo SUDO:
-```shell
-sudo useradd ${USER} -G sudo
-```
-   - Proceder con la instalacion de Docker:
-```shell
+     ntfs-3g &&
+sudo useradd ${USER} -G sudo &&
 sudo apt update && sudo apt-get full-upgrade -y &&
 sudo curl -fsSL https://get.docker.com/ -o get-docker.sh && sudo sh get-docker.sh &&
 sudo usermod -aG docker ${USER} &&
