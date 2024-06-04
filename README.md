@@ -112,3 +112,11 @@ git clone https://github.com/TecnologyCASM/PlexMediaS.git
 cd PlexMediaS
 ls -la
 ```
+2) Luego de trabajar en el paso #2, solo resta ejecutar el siguiente comando:
+```shell
+docker compose up -d && docker ps
+```
+
+![image](https://github.com/TecnologyCASM/PortainerADM-Bot/assets/107158068/cd69904b-e0be-4c02-a7d4-f0729300170c)
+
+MUCHAS GRACIAS POR UTILIZAR MI APORTE A LA COMUNIDAD...
