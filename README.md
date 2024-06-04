@@ -104,3 +104,11 @@ UUID="029EF4C89EF4B4EF"  /mnt/storage  ntfs-3g  defaults,auto  0  0
 ![image](https://github.com/TecnologyCASM/MiHomeLAB-CASM/assets/107158068/efe03d0a-ad63-4b6a-89f1-e591daaf1fdc)
 
 luego de esto solo resta reiniciar.
+
+# Descarga y Ejecucion del proyecto HomePortainer:
+1) Ejecutar el siguiente comando para solo descargar el proyecto `PlexMediaS` y acceder a la carpeta del proyecto:
+```shell
+git clone https://github.com/TecnologyCASM/PlexMediaS.git
+cd PlexMediaS
+ls -la
+```
