@@ -64,8 +64,6 @@ sudo apt update && sudo apt-get full-upgrade -y \
      vim \
      fail2ban \
      ntfs-3g &&
-sudo useradd ${USER} -G sudo &&
-sudo apt update && sudo apt-get full-upgrade -y &&
 sudo curl -fsSL https://get.docker.com/ -o get-docker.sh && sudo sh get-docker.sh &&
 sudo usermod -aG docker ${USER} &&
 sudo reboot
