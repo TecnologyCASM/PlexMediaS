@@ -111,9 +111,6 @@ luego de esto solo resta reiniciar.
 git clone https://github.com/TecnologyCASM/PlexMediaS.git
 cd PlexMediaS
 ls -la
-```
-2) Luego de trabajar en el paso #2, solo resta ejecutar el siguiente comando:
-```shell
 docker compose up -d && docker ps
 ```
 MUCHAS GRACIAS POR UTILIZAR MI APORTE A LA COMUNIDAD...
