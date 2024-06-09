@@ -1,6 +1,21 @@
 version: '3.8'
 
 services:
+# Servicio Samba
+version: '3.8'
+services:
+  samba:
+    image: lordpedal/samba
+    container_name: SAMBA
+    environment:
+      - TZ=America/Santo_Domingo
+    volumes:
+      - '~/docker/shared:/lordpedal'
+    ports:
+      - 139:139
+      - 445:445
+    restart: always
+#--------------------------------------------------------------------#
 # Servicio Plex
   plex:
     image: lscr.io/linuxserver/plex:latest
