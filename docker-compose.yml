@@ -41,7 +41,7 @@ services:
     container_name: TORRENTBT
     command: transmission-daemon -f -g /config
     volumes:
-      - ${SHARED}./transmission:/config
+      - ${SHARED}/transmission:/config
       - ${SHARED}/torrents:/downloads
     ports:
       - 9091:9091
