@@ -5,13 +5,13 @@ services:
   samba:
     image: lordpedal/samba
     container_name: SAMBA
-    #command: '-u "pi;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
-    #tty: true
+    #command: '-u "pi4;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    tty: true
     environment:
       - TZ=${TZ}
     volumes:
-      #- ${SHARED}:/lordpedal
-      - ${SHARED}:/media
+     # - ${SHARED}:/lordpedal
+      - ${SHARED}/Media:/media
       - ${SHARED}/torrents:/downloads
     ports:
       - 139:139
@@ -27,7 +27,7 @@ services:
       - VERSION=docker
     volumes:
       - ${SHARED}/Plex Media Server:/root/Library/Application Support/Plex Media Server
-      - ${SHARED}:/media
+      - ${SHARED}/Media:/media
       - ${SHARED}/tmp:/tmp
     expose:
       - 32401
