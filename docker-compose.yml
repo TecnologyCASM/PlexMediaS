@@ -54,19 +54,19 @@ services:
     restart: unless-stopped
 #--------------------------------------------------------------------#
 # Servicio Flexget
-  flexget:
-    image: wiserain/flexget:3.5
-    container_name: FLEXGET-MGMT
-    volumes:
-      - ./flexget:/config
-      - ./flexget/custom-cont-init.d:/custom-cont-init.d
-      - ${STORAGE}/torrents:/downloads
-      - ${MEDIA}:/storage
-    ports:
-      - 5050:5050
-    environment:
-      - PUID=1001
-      - PGID=1001
-      - TORRENT_PLUGIN=transmission
-      - FG_WEBUI_PASSWD=${FG_WEBUI_PASSWD}
-    restart: unless-stopped
+#  flexget:
+#    image: wiserain/flexget:3.5
+#    container_name: FLEXGET-MGMT
+#    volumes:
+#      - ./flexget:/config
+#      - ./flexget/custom-cont-init.d:/custom-cont-init.d
+#      - ${STORAGE}/torrents:/downloads
+#      - ${MEDIA}:/storage
+#    ports:
+#      - 5050:5050
+#    environment:
+#      - PUID=1001
+#      - PGID=1001
+#      - TORRENT_PLUGIN=transmission
+#      - FG_WEBUI_PASSWD=${FG_WEBUI_PASSWD}
+#    restart: unless-stopped
