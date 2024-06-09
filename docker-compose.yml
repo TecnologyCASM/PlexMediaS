@@ -11,8 +11,8 @@ services:
       - TZ=${TZ}
     volumes:
      # - ${SHARED}:/lordpedal
-      - ${SHARED}/Media:/media
-      - ${SHARED}/torrents:/downloads
+      - ${MEDIA}:/media
+      - ${STORAGE}/torrents:/downloads
     ports:
       - 139:139
       - 445:445
@@ -26,9 +26,9 @@ services:
       - TZ=${TZ}
       - VERSION=docker
     volumes:
-      - ${SHARED}/Plex Media Server:/root/Library/Application Support/Plex Media Server
-      - ${SHARED}/Media:/media
-      - ${SHARED}/tmp:/tmp
+      - ${MEDIA}:/media
+      - ${STORAGE}/tmp:/tmp
+      - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server      
     expose:
       - 32401
       - 33401
@@ -41,8 +41,8 @@ services:
     container_name: TORRENTBT
     command: transmission-daemon -f -g /config
     volumes:
-      - ${SHARED}/transmission:/config
-      - ${SHARED}/torrents:/downloads
+      - ./transmission:/config
+      - ${STORAGE}/torrents:/downloads
     ports:
       - 9091:9091
       - 51413:51413
