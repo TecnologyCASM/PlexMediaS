@@ -5,14 +5,14 @@ services:
   samba:
     image: lordpedal/samba
     container_name: SAMBA
-    command: '-u "pi;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'    
-    tty: true    
+    #command: '-u "pi;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    #tty: true
     environment:
       - TZ=${TZ}
     volumes:
       #- ${SHARED}:/lordpedal
-      - ${SHARED}:/media      
-      - ${SHARED}/torrents:/downloads      
+      - ${SHARED}:/media
+      - ${SHARED}/torrents:/downloads
     ports:
       - 139:139
       - 445:445
