@@ -3,15 +3,10 @@ version: '3.8'
 services:
 # Servicio Samba
   samba:
-    image: dperson/samba
+    image: lordpedal/samba
     container_name: SAMBA
-    command: '-u "${SAMBA_USER};${SAMBA_PASSWORD}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
-    stdin_open: true
-    tty: true
     environment:
       - TZ=${TZ}
-      - SAMBA_USER=${SAMBA_USER}
-      - SAMBA_PASSWORD=${SAMBA_PASSWORD}
     volumes:
       - ${MEDIA}:/media
       - ${STORAGE}/torrents:/downloads
@@ -52,21 +47,3 @@ services:
     expose:
       - 9091
     restart: unless-stopped
-#--------------------------------------------------------------------#
-# Servicio Flexget
-#  flexget:
-#    image: wiserain/flexget:3.5
-#    container_name: FLEXGET-MGMT
-#    volumes:
-#      - ./flexget:/config
-#      - ./flexget/custom-cont-init.d:/custom-cont-init.d
-#      - ${STORAGE}/torrents:/downloads
-#      - ${MEDIA}:/storage
-#    ports:
-#      - 5050:5050
-#    environment:
-#      - PUID=1001
-#      - PGID=1001
-#      - TORRENT_PLUGIN=transmission
-#      - FG_WEBUI_PASSWD=${FG_WEBUI_PASSWD}
-#    restart: unless-stopped
