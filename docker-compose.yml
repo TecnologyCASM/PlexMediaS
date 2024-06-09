@@ -1,20 +1,6 @@
 version: '3.8'
 
 services:
-# Servicio Samba
-  samba:
-    image: lordpedal/samba
-    container_name: SAMBA
-    environment:
-      - TZ=${TZ}
-    volumes:
-      - ${MEDIA}:/media
-      - ${STORAGE}/torrents:/downloads
-    ports:
-      - 139:139
-      - 445:445
-    restart: always
-#--------------------------------------------------------------------#
 # Servicio Plex
   plex:
     image: lscr.io/linuxserver/plex:latest
@@ -23,9 +9,9 @@ services:
       - TZ=${TZ}
       - VERSION=docker
     volumes:
-      - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server
-      - ${MEDIA}:/media
-      - ${STORAGE}/tmp:/tmp
+      - ${SHARED}/Plex Media Server:/root/Library/Application Support/Plex Media Server
+      - ${SHARED}:/media
+      - ${SHARED}/tmp:/tmp
     expose:
       - 32401
       - 33401
@@ -38,8 +24,8 @@ services:
     container_name: TORRENTBT
     command: transmission-daemon -f -g /config
     volumes:
-      - ./transmission:/config
-      - ${STORAGE}/torrents:/downloads
+      - ${SHARED}./transmission:/config
+      - ${SHARED}/torrents:/downloads
     ports:
       - 9091:9091
       - 51413:51413
