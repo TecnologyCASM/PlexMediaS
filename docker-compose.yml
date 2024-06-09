@@ -5,11 +5,11 @@ services:
   samba:
     image: dperson/samba
     container_name: SAMBA
-    command: '-u "${SAMBA_USER};${SAMBA_PASSWORD}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'    
+    command: '-u "${SAMBA_USER};${SAMBA_PASSWORD}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
     stdin_open: true
     tty: true
     environment:
-      - TZ=${TZ}    
+      - TZ=${TZ}
       - SAMBA_USER=${SAMBA_USER}
       - SAMBA_PASSWORD=${SAMBA_PASSWORD}
     volumes:
@@ -26,21 +26,21 @@ services:
     container_name: PLEX
     environment:
       - TZ=${TZ}
-      - VERSION=docker      
+      - VERSION=docker
     volumes:
       - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server
       - ${MEDIA}:/media
       - ${STORAGE}/tmp:/tmp
     expose:
-      - 32400
-      - 33400
+      - 32401
+      - 33401
     restart: unless-stopped
     network_mode: "host"
 #--------------------------------------------------------------------#
 # Servicio Transmission
- transmission:
+  transmission:
     image : jaymoulin/transmission:3.00-1.6.1
-    container_name: TORRENTBT    
+    container_name: TORRENTBT
     command: transmission-daemon -f -g /config
     volumes:
       - ./transmission:/config
@@ -56,7 +56,7 @@ services:
 # Servicio Flexget
   flexget:
     image: wiserain/flexget:3.5
-    container_name: FLEXGET-MGMT 
+    container_name: FLEXGET-MGMT
     volumes:
       - ./flexget:/config
       - ./flexget/custom-cont-init.d:/custom-cont-init.d
