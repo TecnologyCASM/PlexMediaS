@@ -29,8 +29,8 @@ services:
       - ${STORAGE}/tmp:/tmp
       - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server
 #   expose:
-#     - 32401
-#     - 33401
+#     - 32400
+#     - 33400
     ports:
       - 32400:32400
       - 33400:33400
