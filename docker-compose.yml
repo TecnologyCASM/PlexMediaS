@@ -28,14 +28,11 @@ services:
       - ${MEDIA}:/media
       - ${STORAGE}/tmp:/tmp
       - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server
-#   expose:
-#     - 32400
-#     - 33400
-    ports:
-      - 32400:32400
-      - 33400:33400
+    expose:
+     - 32400
+     - 33400
     restart: unless-stopped
-#    network_mode: "host"
+    network_mode: "host"
 #--------------------------------------------------------------------#
   transmission:
     image : jaymoulin/transmission:3.00-1.6.1
