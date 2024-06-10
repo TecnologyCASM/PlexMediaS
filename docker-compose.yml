@@ -1,16 +1,14 @@
 version: '3.8'
 
 services:
-# Servicio Samba
   samba:
-    image: lordpedal/samba
+    image: dperson/samba
     container_name: SAMBA
-    #command: '-u "pi4;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    command: '-u "pi4;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
     tty: true
     environment:
       - TZ=${TZ}
     volumes:
-     # - ${SHARED}:/lordpedal
       - ${MEDIA}:/media
       - ${STORAGE}/torrents:/downloads
     ports:
@@ -18,7 +16,6 @@ services:
       - 445:445
     restart: always
 #--------------------------------------------------------------------#
-# Servicio Plex
   plex:
     image: lscr.io/linuxserver/plex:latest
     container_name: PLEX
@@ -28,14 +25,13 @@ services:
     volumes:
       - ${MEDIA}:/media
       - ${STORAGE}/tmp:/tmp
-      - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server      
+      - ${STORAGE}/Plex Media Server:/root/Library/Application Support/Plex Media Server
     expose:
       - 32401
       - 33401
     restart: unless-stopped
     network_mode: "host"
 #--------------------------------------------------------------------#
-# Servicio Transmission
   transmission:
     image : jaymoulin/transmission:3.00-1.6.1
     container_name: TORRENTBT
