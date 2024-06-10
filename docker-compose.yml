@@ -4,10 +4,12 @@ services:
   samba:
     image: dperson/samba
     container_name: SAMBA
-    command: '-u "pi4;password" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    command: '-u "${SAMBA_USER};${SAMBA_PASSWORD}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
     tty: true
     environment:
       - TZ=${TZ}
+      - SAMBA_USER=${SAMBA_USER}
+      - SAMBA_PASSWORD=${SAMBA_PASSWORD}
     volumes:
       - ${MEDIA}:/media
       - ${STORAGE}/torrents:/downloads
