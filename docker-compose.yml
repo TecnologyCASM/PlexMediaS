@@ -7,8 +7,8 @@ services:
     tty: true
     environment:
       - TZ=${TZ}
-      - SAMBA_USER=${SAMBA_USER}
-      - SAMBA_PASSWORD=${SAMBA_PASSWORD}
+      - SAMBA_USER=${USER}
+      - SAMBA_PASSWORD=${PASS}
     volumes:
       - ${MEDIA}:/media
       - ${STORAGE}/torrents:/downloads
@@ -40,8 +40,8 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TZ}
-      - TR_USER=${TR_USER}
-      - TR_PASS=${TR_USER}
+      - TR_USER=${USER}
+      - TR_PASS=${PASS}
     volumes:
       - ./transmission:/config
       - ${STORAGE}/torrents:/downloads
