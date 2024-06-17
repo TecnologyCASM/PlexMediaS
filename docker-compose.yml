@@ -20,8 +20,8 @@ services:
     image: lscr.io/linuxserver/transmission:latest
     container_name: TORRENT
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=${TZ}
       - USER=${USER}
       - PASS=${PASS}
@@ -34,12 +34,29 @@ services:
       - 51413:51413/udp
     restart: unless-stopped
 #--------------------------------------------------------------------#
+  sonarr:
+    image: lscr.io/linuxserver/sonarr:latest
+    container_name: SONARR
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - USER=${USER}
+      - PASS=${PASS}
+    volumes:
+      - ./sonarr/data:/config
+      - ${STORAGE}/torrents:/downloads
+      - ${MEDIA}:/media
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+#--------------------------------------------------------------------#
   jackett:
     image: lscr.io/linuxserver/jackett:latest
     container_name: JACKETT
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=${TZ}
       - AUTO_UPDATE=true
     volumes:
@@ -49,15 +66,32 @@ services:
       - 9117:9117
     restart: unless-stopped
 #--------------------------------------------------------------------#
+#  jellyfin:
+#    image: lscr.io/linuxserver/jellyfin:latest
+#    container_name: JELLYFIN
+#    environment:
+#      - PUID=${PUID}
+#      - PGID=${PGID}
+#      - TZ=${TZ}
+#    volumes:
+#      - ${STORAGE}/library:/config
+#      - ${MEDIA}:/media/peliculas
+#      - ${MEDIA}:/media/series
+#    ports:
+#      - 8096:8096
+#    restart: unless-stopped
+#--------------------------------------------------------------------#
+#--------------------------------------------------------------------#
   samba:
     image: dperson/samba
     container_name: SAMBA
     command: '-u "${USER};${PASS}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    stdin_open: true
     tty: true
     environment:
       - TZ=${TZ}
-      - SAMBA_USER=${USER}
-      - SAMBA_PASS=${PASS}
+      - USER=${USER}
+      - PASS=${PASS}
     volumes:
       - ${MEDIA}:/media
       - ${STORAGE}/torrents:/downloads
