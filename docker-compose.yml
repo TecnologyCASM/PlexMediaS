@@ -71,13 +71,13 @@ services:
   samba:
     image: dperson/samba
     container_name: SAMBA
-    command: '-u "${SAMBA_USER};${SAMBA_PASS}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    command: '-u "${USER};${PASS}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
     stdin_open: true
     tty: true
     environment:
       - TZ=${TZ}
-      - SAMBA_USER=${USER}
-      - SAMBA_PASS=${PASS}
+      - SB_USER=${USER}
+      - SB_PASS=${PASS}
     volumes:
       - ${MEDIA}:/media
       - ${STORAGE}/torrents:/downloads
