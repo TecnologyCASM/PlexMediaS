@@ -47,6 +47,8 @@ services:
       - ./sonarr/data:/config
       - ${STORAGE}/torrents:/downloads
       - ${MEDIA}:/media
+      - ${MEDIA}:/media/peliculas
+      - ${MEDIA}:/media/series
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -66,32 +68,16 @@ services:
       - 9117:9117
     restart: unless-stopped
 #--------------------------------------------------------------------#
-#  jellyfin:
-#    image: lscr.io/linuxserver/jellyfin:latest
-#    container_name: JELLYFIN
-#    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
-#    volumes:
-#      - ${STORAGE}/library:/config
-#      - ${MEDIA}:/media/peliculas
-#      - ${MEDIA}:/media/series
-#    ports:
-#      - 8096:8096
-#    restart: unless-stopped
-#--------------------------------------------------------------------#
-#--------------------------------------------------------------------#
   samba:
     image: dperson/samba
     container_name: SAMBA
-    command: '-u "${USER};${PASS}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    command: '-u "${SAMBA_USER};${SAMBA_PASS}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
     stdin_open: true
     tty: true
     environment:
       - TZ=${TZ}
-      - USER=${USER}
-      - PASS=${PASS}
+      - SAMBA_USER=${USER}
+      - SAMBA_PASS=${PASS}
     volumes:
       - ${MEDIA}:/media
       - ${STORAGE}/torrents:/downloads
