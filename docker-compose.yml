@@ -1,22 +1,5 @@
 ---
 services:
-  samba:
-    image: dperson/samba
-    container_name: SAMBA
-    command: '-u "${SAMBA_USER};${SAMBA_PASS}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
-    tty: true
-    environment:
-      - TZ=${TZ}
-      - SAMBA_USER=${USER}
-      - SAMBA_PASS=${PASS}
-    volumes:
-      - ${MEDIA}:/media
-      - ${STORAGE}/torrents:/downloads
-    ports:
-      - 139:139
-      - 445:445
-    restart: always
-#--------------------------------------------------------------------#
   plex:
     image: lscr.io/linuxserver/plex:latest
     container_name: PLEX
@@ -57,11 +40,28 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - PASS=${PASS}
+      - TZ=${TZ}
       - AUTO_UPDATE=true
     volumes:
       - ./jackett/data:/config
-      - ${STORAGE}/torrents:/downloads
+      - ${STORAGE}/blackhole:/downloads
     ports:
       - 9117:9117
     restart: unless-stopped
+#--------------------------------------------------------------------#
+  samba:
+    image: dperson/samba
+    container_name: SAMBA
+    command: '-u "${USER};${PASS}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
+    tty: true
+    environment:
+      - TZ=${TZ}
+      - SAMBA_USER=${USER}
+      - SAMBA_PASS=${PASS}
+    volumes:
+      - ${MEDIA}:/media
+      - ${STORAGE}/torrents:/downloads
+    ports:
+      - 139:139
+      - 445:445
+    restart: always
