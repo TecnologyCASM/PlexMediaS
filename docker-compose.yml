@@ -71,9 +71,6 @@ services:
   samba:
     image: dperson/samba
     container_name: SAMBA
-    command: '-u "${SAMBA_USER};${SAMBA_PASSWORD}" -s "media;/media;yes;no" -s "downloads;/downloads;yes;no"'
-    stdin_open: true
-    tty: true
     environment:
       - TZ=${TZ}
       - SAMBA_USER=${SAMBA_USER}
@@ -85,4 +82,11 @@ services:
       - 139:139
       - 445:445
     restart: always
-
+    stdin_open: true
+    tty: true
+    entrypoint: /bin/sh -c
+    command: >
+      "chmod -R 777 /media &&
+      /usr/bin/samba.sh -u \"${SAMBA_USER};${SAMBA_PASSWORD}\"
+      -s \"media;/media;yes;no\"
+      -s \"downloads;/downloads;yes;no\""
